@@ -1,0 +1,660 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D68B94C2D39C75300A4411E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9D68B94B2D39C74E00A4411E /* README.md */; };
+		9D68B94E2D39C7EC00A4411E /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 9D68B94D2D39C7E400A4411E /* CHANGELOG.md */; };
+		9D68B98F2D39C8A900A4411E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9D68B98E2D39C89E00A4411E /* LICENSE */; };
+		9DC5DA302D38461C0019D4AD /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC5DA2F2D38461C0019D4AD /* ARKit.framework */; };
+		9DC5DA322D3846240019D4AD /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC5DA312D3846240019D4AD /* Vision.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9DC5DA122D38453F0019D4AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DC5D9F92D38453C0019D4AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DC5DA002D38453C0019D4AD;
+			remoteInfo = ARViewerModular;
+		};
+		9DC5DA1C2D38453F0019D4AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DC5D9F92D38453C0019D4AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DC5DA002D38453C0019D4AD;
+			remoteInfo = ARViewerModular;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9D68B94B2D39C74E00A4411E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9D68B94D2D39C7E400A4411E /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		9D68B98E2D39C89E00A4411E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9DC5DA012D38453C0019D4AD /* ARViewerModular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARViewerModular.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC5DA112D38453F0019D4AD /* ARViewerModularTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARViewerModularTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC5DA1B2D38453F0019D4AD /* ARViewerModularUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARViewerModularUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC5DA2F2D38461C0019D4AD /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		9DC5DA312D3846240019D4AD /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9DC5DA402D384B3E0019D4AD /* Exceptions for "Tests" folder in "ARViewerModular" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ARViewerModularTests/ARViewerModularTests.swift,
+				ARViewerModularUITests/ARViewerModularUITests.swift,
+				ARViewerModularUITests/ARViewerModularUITestsLaunchTests.swift,
+			);
+			target = 9DC5DA002D38453C0019D4AD /* ARViewerModular */;
+		};
+		9DC5DA412D384B3E0019D4AD /* Exceptions for "Tests" folder in "ARViewerModularTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ARViewerModularTests/ARViewerModularTests.swift,
+			);
+			target = 9DC5DA102D38453F0019D4AD /* ARViewerModularTests */;
+		};
+		9DC5DA472D384B400019D4AD /* Exceptions for "Tests" folder in "ARViewerModularUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ARViewerModularUITests/ARViewerModularUITests.swift,
+				ARViewerModularUITests/ARViewerModularUITestsLaunchTests.swift,
+			);
+			target = 9DC5DA1A2D38453F0019D4AD /* ARViewerModularUITests */;
+		};
+		9DC5DAF12D386E520019D4AD /* Exceptions for "ARViewerModular" folder in "ARViewerModular" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9DC5DA002D38453C0019D4AD /* ARViewerModular */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9D68B8CA2D399B6600A4411E /* README */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = README;
+			sourceTree = "<group>";
+		};
+		9DC5DA032D38453C0019D4AD /* ARViewerModular */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9DC5DAF12D386E520019D4AD /* Exceptions for "ARViewerModular" folder in "ARViewerModular" target */,
+			);
+			path = ARViewerModular;
+			sourceTree = "<group>";
+		};
+		9DC5DA332D3848660019D4AD /* Sources  */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Sources ";
+			sourceTree = "<group>";
+		};
+		9DC5DA372D3848A10019D4AD /* Resources */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9DC5DA382D3848AE0019D4AD /* Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9DC5DA402D384B3E0019D4AD /* Exceptions for "Tests" folder in "ARViewerModular" target */,
+				9DC5DA412D384B3E0019D4AD /* Exceptions for "Tests" folder in "ARViewerModularTests" target */,
+				9DC5DA472D384B400019D4AD /* Exceptions for "Tests" folder in "ARViewerModularUITests" target */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		9DC5DA392D3848C00019D4AD /* Examples */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Examples;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DC5D9FE2D38453C0019D4AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC5DA322D3846240019D4AD /* Vision.framework in Frameworks */,
+				9DC5DA302D38461C0019D4AD /* ARKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DC5DA0E2D38453F0019D4AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DC5DA182D38453F0019D4AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DC5D9F82D38453C0019D4AD = {
+			isa = PBXGroup;
+			children = (
+				9D68B98E2D39C89E00A4411E /* LICENSE */,
+				9D68B94D2D39C7E400A4411E /* CHANGELOG.md */,
+				9D68B94B2D39C74E00A4411E /* README.md */,
+				9D68B8CA2D399B6600A4411E /* README */,
+				9DC5DA392D3848C00019D4AD /* Examples */,
+				9DC5DA382D3848AE0019D4AD /* Tests */,
+				9DC5DA372D3848A10019D4AD /* Resources */,
+				9DC5DA332D3848660019D4AD /* Sources  */,
+				9DC5DA032D38453C0019D4AD /* ARViewerModular */,
+				9DC5DA2E2D38461C0019D4AD /* Frameworks */,
+				9DC5DA022D38453C0019D4AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9DC5DA022D38453C0019D4AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DC5DA012D38453C0019D4AD /* ARViewerModular.app */,
+				9DC5DA112D38453F0019D4AD /* ARViewerModularTests.xctest */,
+				9DC5DA1B2D38453F0019D4AD /* ARViewerModularUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DC5DA2E2D38461C0019D4AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DC5DA312D3846240019D4AD /* Vision.framework */,
+				9DC5DA2F2D38461C0019D4AD /* ARKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DC5DA002D38453C0019D4AD /* ARViewerModular */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DC5DA252D38453F0019D4AD /* Build configuration list for PBXNativeTarget "ARViewerModular" */;
+			buildPhases = (
+				9DC5D9FD2D38453C0019D4AD /* Sources */,
+				9DC5D9FE2D38453C0019D4AD /* Frameworks */,
+				9DC5D9FF2D38453C0019D4AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9D68B8CA2D399B6600A4411E /* README */,
+				9DC5DA032D38453C0019D4AD /* ARViewerModular */,
+				9DC5DA332D3848660019D4AD /* Sources  */,
+				9DC5DA372D3848A10019D4AD /* Resources */,
+				9DC5DA382D3848AE0019D4AD /* Tests */,
+				9DC5DA392D3848C00019D4AD /* Examples */,
+			);
+			name = ARViewerModular;
+			packageProductDependencies = (
+			);
+			productName = ARViewerModular;
+			productReference = 9DC5DA012D38453C0019D4AD /* ARViewerModular.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9DC5DA102D38453F0019D4AD /* ARViewerModularTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DC5DA282D38453F0019D4AD /* Build configuration list for PBXNativeTarget "ARViewerModularTests" */;
+			buildPhases = (
+				9DC5DA0D2D38453F0019D4AD /* Sources */,
+				9DC5DA0E2D38453F0019D4AD /* Frameworks */,
+				9DC5DA0F2D38453F0019D4AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DC5DA132D38453F0019D4AD /* PBXTargetDependency */,
+			);
+			name = ARViewerModularTests;
+			packageProductDependencies = (
+			);
+			productName = ARViewerModularTests;
+			productReference = 9DC5DA112D38453F0019D4AD /* ARViewerModularTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9DC5DA1A2D38453F0019D4AD /* ARViewerModularUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DC5DA2B2D38453F0019D4AD /* Build configuration list for PBXNativeTarget "ARViewerModularUITests" */;
+			buildPhases = (
+				9DC5DA172D38453F0019D4AD /* Sources */,
+				9DC5DA182D38453F0019D4AD /* Frameworks */,
+				9DC5DA192D38453F0019D4AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DC5DA1D2D38453F0019D4AD /* PBXTargetDependency */,
+			);
+			name = ARViewerModularUITests;
+			packageProductDependencies = (
+			);
+			productName = ARViewerModularUITests;
+			productReference = 9DC5DA1B2D38453F0019D4AD /* ARViewerModularUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DC5D9F92D38453C0019D4AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					9DC5DA002D38453C0019D4AD = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					9DC5DA102D38453F0019D4AD = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 9DC5DA002D38453C0019D4AD;
+					};
+					9DC5DA1A2D38453F0019D4AD = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 9DC5DA002D38453C0019D4AD;
+					};
+				};
+			};
+			buildConfigurationList = 9DC5D9FC2D38453C0019D4AD /* Build configuration list for PBXProject "ARViewerModular" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DC5D9F82D38453C0019D4AD;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9DC5DA022D38453C0019D4AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DC5DA002D38453C0019D4AD /* ARViewerModular */,
+				9DC5DA102D38453F0019D4AD /* ARViewerModularTests */,
+				9DC5DA1A2D38453F0019D4AD /* ARViewerModularUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DC5D9FF2D38453C0019D4AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D68B94C2D39C75300A4411E /* README.md in Resources */,
+				9D68B98F2D39C8A900A4411E /* LICENSE in Resources */,
+				9D68B94E2D39C7EC00A4411E /* CHANGELOG.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DC5DA0F2D38453F0019D4AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DC5DA192D38453F0019D4AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DC5D9FD2D38453C0019D4AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DC5DA0D2D38453F0019D4AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DC5DA172D38453F0019D4AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DC5DA132D38453F0019D4AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DC5DA002D38453C0019D4AD /* ARViewerModular */;
+			targetProxy = 9DC5DA122D38453F0019D4AD /* PBXContainerItemProxy */;
+		};
+		9DC5DA1D2D38453F0019D4AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DC5DA002D38453C0019D4AD /* ARViewerModular */;
+			targetProxy = 9DC5DA1C2D38453F0019D4AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9DC5DA232D38453F0019D4AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9DC5DA242D38453F0019D4AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DC5DA262D38453F0019D4AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ARViewerModular/Preview Content\"";
+				DEVELOPMENT_TEAM = Z596R45PA8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ARViewerModular/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Se requiere acceso a la cámara para experiencias de realidad aumentada";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = beltradini.ARViewerModular;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DC5DA272D38453F0019D4AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ARViewerModular/Preview Content\"";
+				DEVELOPMENT_TEAM = Z596R45PA8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ARViewerModular/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Se requiere acceso a la cámara para experiencias de realidad aumentada";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = beltradini.ARViewerModular;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9DC5DA292D38453F0019D4AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z596R45PA8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = beltradini.ARViewerModularTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARViewerModular.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ARViewerModular";
+			};
+			name = Debug;
+		};
+		9DC5DA2A2D38453F0019D4AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z596R45PA8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = beltradini.ARViewerModularTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARViewerModular.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ARViewerModular";
+			};
+			name = Release;
+		};
+		9DC5DA2C2D38453F0019D4AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z596R45PA8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = beltradini.ARViewerModularUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ARViewerModular;
+			};
+			name = Debug;
+		};
+		9DC5DA2D2D38453F0019D4AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z596R45PA8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = beltradini.ARViewerModularUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ARViewerModular;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DC5D9FC2D38453C0019D4AD /* Build configuration list for PBXProject "ARViewerModular" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC5DA232D38453F0019D4AD /* Debug */,
+				9DC5DA242D38453F0019D4AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DC5DA252D38453F0019D4AD /* Build configuration list for PBXNativeTarget "ARViewerModular" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC5DA262D38453F0019D4AD /* Debug */,
+				9DC5DA272D38453F0019D4AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DC5DA282D38453F0019D4AD /* Build configuration list for PBXNativeTarget "ARViewerModularTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC5DA292D38453F0019D4AD /* Debug */,
+				9DC5DA2A2D38453F0019D4AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DC5DA2B2D38453F0019D4AD /* Build configuration list for PBXNativeTarget "ARViewerModularUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC5DA2C2D38453F0019D4AD /* Debug */,
+				9DC5DA2D2D38453F0019D4AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DC5D9F92D38453C0019D4AD /* Project object */;
+}
