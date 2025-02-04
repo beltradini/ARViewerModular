@@ -8,9 +8,6 @@
 
 // Example App for AR Measurement Tool
 
-import UIKit
-import ARKit
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -29,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MeasurementViewController.swift
 import UIKit
 import ARKit
+import SceneKit
 
 class MeasurementViewController: UIViewController, ARSCNViewDelegate {
 
@@ -98,20 +96,23 @@ class MeasurementViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - Gesture Handling
     @objc func handleTap(_ gesture: UITapGestureRecognizer) {
-        let location = gesture.location(in: sceneView)
-        let hitTestResults = sceneView.hitTest(location, types: [.featurePoint])
-
-        if let result = hitTestResults.first {
-            addPoint(at: result.worldTransform)
-            if points.count > 1 {
-                calculateDistance()
+        if #available(iOS 14.0, *) {
+            if let query = sceneView.raycastQuery(from: gesture.location(in: sceneView), allowing: .estimatedPlane, alignment: .any) {
+                let results = sceneView.session.raycast(query)
+                if let result = results.first {
+                    let position = SCNVector3(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
+                    print("Position: \(position)")
+                }
             }
-            if points.count > 2 {
-                calculateArea()
+        } else {
+            let results = sceneView.hitTest(gesture.location(in: sceneView), types: .existingPlaneUsingExtent)
+            if let result = results.first {
+                let position = SCNVector3(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
+                print("Point: \(position)")
             }
         }
     }
-
+       
     // MARK: - Point Handling
     func addPoint(at transform: matrix_float4x4) {
         let sphere = SCNSphere(radius: 0.01)
@@ -142,7 +143,6 @@ class MeasurementViewController: UIViewController, ARSCNViewDelegate {
 
         totalDistance += distance
         displayDistance(totalDistance)
-        drawLine(from: points[points.count - 2], to: points[points.count - 1])
     }
 
     func displayDistance(_ distance: Float) {
@@ -183,11 +183,22 @@ class MeasurementViewController: UIViewController, ARSCNViewDelegate {
     func displayArea(_ area: Float) {
         areaLabel.text = String(format: "Area: %.2f m²", area)
     }
-
-    func drawLine(from start: SCNNode, to end: SCNNode) {
-        let lineGeometry = SCNGeometry.line(from: start.position, to: end.position)
+    
+    func createLineNode(from start: SCNVector3, to end: SCNVector3) -> SCNNode {
+        let vertices: [SCNVector3] = [start, end]
+        let vertexSource = SCNGeometrySource(vertices: vertices)
+        
+        let indices: [Int32] = [0, 1]
+        let indexData = Data(bytes: indices, count: MemoryLayout<Int32>.size * indices.count)
+        let indexElement = SCNGeometryElement(
+            data: indexData,
+            primitiveType: .line,
+            primitiveCount: indices.count / 2,
+            bytesPerIndex: MemoryLayout<Int32>.size)
+        
+        let lineGeometry = SCNGeometry(sources: [vertexSource], elements: [indexElement])
         let lineNode = SCNNode(geometry: lineGeometry)
-        lineNode.geometry?.firstMaterial?.diffuse.contents = UIColor.yellow
-        sceneView.scene.rootNode.addChildNode(lineNode)
+        
+        return lineNode
     }
 }

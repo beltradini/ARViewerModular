@@ -37,15 +37,17 @@ struct ARViewer: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: ARSCNView, context: Context) {
-        class Coordinator: NSObject, ARSCNViewDelegate {
-            @objc func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
-                guard let sceneView = sender.view as? ARSCNView else { return }
-                let location = sender.location(in: sceneView)
-                let hitResults = sceneView.hitTest(location, options: nil)
-                
-                if let hitNode = hitResults.first?.node {
-                    print("Nodo seleccionado: \(hitNode.name ?? "Desconocido")")
-                }
+        // Nothing to do here for now
+    }
+    
+    class Coordinator: NSObject, ARSCNViewDelegate {
+        @objc func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
+            guard let sceneView = sender.view as? ARSCNView else { return }
+            let location = sender.location(in: sceneView)
+            let hitResults = sceneView.hitTest(location, options: nil)
+            
+            if let hitNode = hitResults.first?.node {
+                print("Nodo seleccionado: \(hitNode.name ?? "Desconocido")")
             }
         }
     }

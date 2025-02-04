@@ -8,11 +8,14 @@
 import Vision
 import AVFoundation
 import SceneKit
+import ARKit
 
 class VisionHandler {
     private var request: VNCoreMLRequest?
+    var arView: ARSCNView
     
-    init() {
+    init(arView: ARSCNView) {
+        self.arView = arView
         // Cargar un modelo CoreML básico (MobileNetV2 o similar)
         guard let model = try? VNCoreMLModel(for: MobileNetV2(configuration: MLModelConfiguration()).model) else { return }
         self.request = VNCoreMLRequest(model: model, completionHandler: handleDetection)
