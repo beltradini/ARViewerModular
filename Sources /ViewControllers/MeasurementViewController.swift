@@ -4,201 +4,94 @@
 //
 //  Created by Alejandro Beltrán on 1/17/25.
 //
-// Prototype
 
-// Example App for AR Measurement Tool
-
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
-
-    func application(
-        _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-    ) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = MeasurementViewController()
-        window?.makeKeyAndVisible()
-        return true
-    }
-}
-
-// MeasurementViewController.swift
 import UIKit
 import ARKit
-import SceneKit
 
 class MeasurementViewController: UIViewController, ARSCNViewDelegate {
-
-    // MARK: - Properties
-    var sceneView: ARSCNView!
-    var points: [SCNNode] = []
-    var totalDistance: Float = 0.0
-    var distanceLabel: UILabel!
-    var areaLabel: UILabel!
-
-    // MARK: - Lifecycle
+    
+    @IBOutlet var sceneView: ARSCNView!
+    var startPoint: SCNNode?
+    var endPoint: SCNNode?
+    var lineNode: SCNNode?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSceneView()
-        setupUI()
-        addTapGestureRecognizer()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        startARSession()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        sceneView.session.pause()
-    }
-
-    // MARK: - Setup Methods
-    func setupSceneView() {
-        sceneView = ARSCNView(frame: view.bounds)
         sceneView.delegate = self
-        sceneView.autoenablesDefaultLighting = true
-        view.addSubview(sceneView)
-    }
-
-    func setupUI() {
-        distanceLabel = UILabel(frame: CGRect(x: 20, y: 40, width: 200, height: 40))
-        distanceLabel.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        distanceLabel.textColor = .white
-        distanceLabel.textAlignment = .center
-        distanceLabel.text = "Distance: 0.00 m"
-        distanceLabel.layer.cornerRadius = 8
-        distanceLabel.clipsToBounds = true
-        view.addSubview(distanceLabel)
+        sceneView.session.run(ARWorldTrackingConfiguration())
+        sceneView.debugOptions = [.showFeaturePoints]
         
-        areaLabel = UILabel(frame: CGRect(x: 20, y: 90, width: 200, height: 40))
-        areaLabel.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        areaLabel.textColor = .white
-        areaLabel.textAlignment = .center
-        areaLabel.text = "Area: 0.00 m²"
-        areaLabel.layer.cornerRadius = 8
-        areaLabel.clipsToBounds = true
-        view.addSubview(areaLabel)
-    }
-
-    func addTapGestureRecognizer() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         sceneView.addGestureRecognizer(tapGesture)
     }
-
-    func startARSession() {
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
-        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-    }
-
-    // MARK: - Gesture Handling
+    
     @objc func handleTap(_ gesture: UITapGestureRecognizer) {
-        if #available(iOS 14.0, *) {
-            if let query = sceneView.raycastQuery(from: gesture.location(in: sceneView), allowing: .estimatedPlane, alignment: .any) {
-                let results = sceneView.session.raycast(query)
-                if let result = results.first {
-                    let position = SCNVector3(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
-                    print("Position: \(position)")
-                }
-            }
-        } else {
-            let results = sceneView.hitTest(gesture.location(in: sceneView), types: .existingPlaneUsingExtent)
-            if let result = results.first {
-                let position = SCNVector3(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
-                print("Point: \(position)")
+        let touchLocation = gesture.location(in: sceneView)
+        
+        if let query = sceneView.raycastQuery(from: touchLocation, allowing: .estimatedPlane, alignment: .any),
+           let result = sceneView.session.raycast(query).first {
+            
+            let position = SCNVector3(result.worldTransform.columns.3.x,
+                                      result.worldTransform.columns.3.y,
+                                      result.worldTransform.columns.3.z)
+            
+            if startPoint == nil {
+                startPoint = createSphere(at: position, color: .red)
+                sceneView.scene.rootNode.addChildNode(startPoint!)
+            } else if endPoint == nil {
+                endPoint = createSphere(at: position, color: .blue)
+                sceneView.scene.rootNode.addChildNode(endPoint!)
+                drawLine()
+            } else {
+                resetMeasurement()
             }
         }
     }
-       
-    // MARK: - Point Handling
-    func addPoint(at transform: matrix_float4x4) {
+    
+    func createSphere(at position: SCNVector3, color: UIColor) -> SCNNode {
         let sphere = SCNSphere(radius: 0.01)
-        sphere.firstMaterial?.diffuse.contents = UIColor.red
-
-        let pointNode = SCNNode(geometry: sphere)
-        pointNode.position = SCNVector3(
-            transform.columns.3.x,
-            transform.columns.3.y,
-            transform.columns.3.z
-        )
-
-        sceneView.scene.rootNode.addChildNode(pointNode)
-        points.append(pointNode)
-    }
-
-    func calculateDistance() {
-        guard points.count > 1 else { return }
-
-        let start = points[points.count - 2].position
-        let end = points[points.count - 1].position
-
-        let distance = sqrt(
-            pow(end.x - start.x, 2) +
-            pow(end.y - start.y, 2) +
-            pow(end.z - start.z, 2)
-        )
-
-        totalDistance += distance
-        displayDistance(totalDistance)
-    }
-
-    func displayDistance(_ distance: Float) {
-        distanceLabel.text = String(format: "Distance: %.2f m", distance)
+        sphere.firstMaterial?.diffuse.contents = color
+        let node = SCNNode(geometry: sphere)
+        node.position = position
+        return node
     }
     
-    func calculateArea() {
-        guard points.count > 2 else { return }
+    func drawLine() {
+        guard let start = startPoint, let end = endPoint else { return }
         
-        var area: Float = 0.0
-        let origin = points[0].position
+        let line = SCNGeometry.line(from: start.position, to: end.position)
+        lineNode = SCNNode(geometry: line)
+        sceneView.scene.rootNode.addChildNode(lineNode!)
         
-        for i in 1..<points.count - 1 {
-            let p1 = points[i].position
-            let p2 = points[i + 1].position
-            
-            let vector1 = SCNVector3(p1.x - origin.x, p1.y - origin.y, p1.z - origin.z)
-            let vector2 = SCNVector3(p2.x - origin.x, p2.y - origin.y, p2.z - origin.z)
-            
-            let crossProduct = SCNVector3(
-                vector1.y * vector2.z - vector1.z * vector2.y,
-                vector1.z * vector2.x - vector1.x * vector2.z,
-                vector1.x * vector2.y - vector1.y * vector2.x
-            )
-            
-            let triangleArea = 0.5 * sqrt(
-                crossProduct.x * crossProduct.x +
-                crossProduct.y * crossProduct.y +
-                crossProduct.z * crossProduct.z
-            )
-            
-            area += triangleArea
-        }
-        
-        displayArea(area)
+        let distance = start.position.distance(to: end.position)
+        print("Distancia: \(distance) metros")
     }
     
-    func displayArea(_ area: Float) {
-        areaLabel.text = String(format: "Area: %.2f m²", area)
+    func resetMeasurement() {
+        startPoint?.removeFromParentNode()
+        endPoint?.removeFromParentNode()
+        lineNode?.removeFromParentNode()
+        startPoint = nil
+        endPoint = nil
+        lineNode = nil
     }
-    
-    func createLineNode(from start: SCNVector3, to end: SCNVector3) -> SCNNode {
-        let vertices: [SCNVector3] = [start, end]
-        let vertexSource = SCNGeometrySource(vertices: vertices)
-        
+}
+
+extension SCNGeometry {
+    static func line(from vectorA: SCNVector3, to vectorB: SCNVector3) -> SCNGeometry {
+        let vertices: [SCNVector3] = [vectorA, vectorB]
         let indices: [Int32] = [0, 1]
-        let indexData = Data(bytes: indices, count: MemoryLayout<Int32>.size * indices.count)
-        let indexElement = SCNGeometryElement(
-            data: indexData,
-            primitiveType: .line,
-            primitiveCount: indices.count / 2,
-            bytesPerIndex: MemoryLayout<Int32>.size)
         
-        let lineGeometry = SCNGeometry(sources: [vertexSource], elements: [indexElement])
-        let lineNode = SCNNode(geometry: lineGeometry)
+        let vertexSource = SCNGeometrySource(vertices: vertices)
+        let indexData = Data(bytes: indices, count: indices.count * MemoryLayout<Int32>.size)
+        let element = SCNGeometryElement(data: indexData, primitiveType: .line, primitiveCount: 1, bytesPerIndex: MemoryLayout<Int32>.size)
         
-        return lineNode
+        return SCNGeometry(sources: [vertexSource], elements: [element])
+    }
+}
+
+extension SCNVector3 {
+    func distance(to vector: SCNVector3) -> Float {
+        return sqrt(pow(vector.x - x, 2) + pow(vector.y - y, 2) + pow(vector.z - z, 2))
     }
 }
