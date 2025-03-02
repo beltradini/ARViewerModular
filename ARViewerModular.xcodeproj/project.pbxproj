@@ -67,27 +67,12 @@
 			);
 			target = 9DC5DA1A2D38453F0019D4AD /* ARViewerModularUITests */;
 		};
-		9DC5DAF12D386E520019D4AD /* Exceptions for "ARViewerModular" folder in "ARViewerModular" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 9DC5DA002D38453C0019D4AD /* ARViewerModular */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9D68B8CA2D399B6600A4411E /* README */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = README;
-			sourceTree = "<group>";
-		};
-		9DC5DA032D38453C0019D4AD /* ARViewerModular */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				9DC5DAF12D386E520019D4AD /* Exceptions for "ARViewerModular" folder in "ARViewerModular" target */,
-			);
-			path = ARViewerModular;
 			sourceTree = "<group>";
 		};
 		9DC5DA332D3848660019D4AD /* Sources  */ = {
@@ -155,7 +140,6 @@
 				9DC5DA382D3848AE0019D4AD /* Tests */,
 				9DC5DA372D3848A10019D4AD /* Resources */,
 				9DC5DA332D3848660019D4AD /* Sources  */,
-				9DC5DA032D38453C0019D4AD /* ARViewerModular */,
 				9DC5DA2E2D38461C0019D4AD /* Frameworks */,
 				9DC5DA022D38453C0019D4AD /* Products */,
 			);
@@ -197,7 +181,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				9D68B8CA2D399B6600A4411E /* README */,
-				9DC5DA032D38453C0019D4AD /* ARViewerModular */,
 				9DC5DA332D3848660019D4AD /* Sources  */,
 				9DC5DA372D3848A10019D4AD /* Resources */,
 				9DC5DA382D3848AE0019D4AD /* Tests */,
