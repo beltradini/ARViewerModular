@@ -28,4 +28,3 @@ struct ARViewerModularTests {
         XCTAssertNotNil(coordinator.selectedNode, "Nodo no seleccionado")
     }
 }
-
